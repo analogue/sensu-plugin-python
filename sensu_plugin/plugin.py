@@ -68,7 +68,7 @@ class SensuPlugin(object):
             sys.stdout.flush()
             os._exit(1)
         elif self._hook.exception:
-            print("Check failed to run: %s, %s" %
-                 (sys.last_type, traceback.format_tb(sys.last_traceback)))
+            print("Check failed to run: %s" % sys.last_type)
+            traceback.print_tb(sys.last_traceback)
             sys.stdout.flush()
             os._exit(2)
